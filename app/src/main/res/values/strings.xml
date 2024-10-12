@@ -6,4 +6,7 @@
     <string name="upcomingTitle">Upcoming</string>
     <string name="finishedTitle">Finished</string>
     <string name="homeTitle">Home</string>
+    <string name="search_bar_hint">Cari Event Dicoding!</string>
+    <string name="upcoming_event">Upcoming Event</string>
+    <string name="finished_event">Finished Event</string>
 </resources>
