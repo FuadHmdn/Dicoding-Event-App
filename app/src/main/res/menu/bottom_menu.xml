@@ -2,17 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="nav_home"
-        android:title="@string/home"
+        android:id="@+id/homeFragment"
+        android:title="@string/homeTitle"
         android:icon="@drawable/ic_home_filled_24" />
 
     <item
-        android:id="nav_eventFinished"
-        android:title="Finished"
+        android:id="@+id/finishedEventFragment"
+        android:title="@string/finishedTitle"
         android:icon="@drawable/ic_event_available_24" />
 
     <item
-        android:id="nav_eventUpcoming"
-        android:title="Finished"
+        android:id="@+id/upcomingEventFragment"
+        android:title="@string/upcomingTitle"
         android:icon="@drawable/ic_event_24" />
 </menu>

@@ -1,8 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/botom_navigation">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/botom_navigation"
+    app:startDestination="@id/homeFragment">
 
 
-
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.fuad.dicoding_event.ui.fragment.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/upcomingEventFragment"
+        android:name="com.fuad.dicoding_event.ui.fragment.UpcomingEventFragment"
+        android:label="fragment_upcoming_event"
+        tools:layout="@layout/fragment_upcoming_event" />
+    <fragment
+        android:id="@+id/finishedEventFragment"
+        android:name="com.fuad.dicoding_event.ui.fragment.FinishedEventFragment"
+        android:label="fragment_finished_event"
+        tools:layout="@layout/fragment_finished_event" />
 </navigation>
