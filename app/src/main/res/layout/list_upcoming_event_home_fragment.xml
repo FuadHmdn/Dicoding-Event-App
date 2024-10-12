@@ -4,13 +4,16 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="16dp"
+    android:layout_marginEnd="12dp"
+    app:cardElevation="4dp"
     xmlns:tools="http://schemas.android.com/tools">
 
     <ImageView
-        android:layout_width="130dp"
-        android:layout_height="165dp"
+        android:id="@+id/image_upcoming_event"
+        android:layout_width="140dp"
+        android:layout_height="150dp"
         tools:src="@drawable/dummy_image"
-        android:scaleType="fitCenter"
+        android:scaleType="centerCrop"
         android:contentDescription="@string/upcoming_event"/>
 
 
