@@ -1,4 +1,4 @@
-package com.fuad.dicoding_event.ui.homefragment
+package com.fuad.dicoding_event.ui
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -75,6 +75,5 @@ class HomeViewModel: ViewModel() {
 
         })
     }
-
 
 }

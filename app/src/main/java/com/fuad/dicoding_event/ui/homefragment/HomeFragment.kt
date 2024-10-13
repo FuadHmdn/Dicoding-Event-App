@@ -1,14 +1,19 @@
 package com.fuad.dicoding_event.ui.homefragment
 
+import android.content.res.Resources
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.fuad.dicoding_event.R
 import com.fuad.dicoding_event.data.ListEventsItem
 import com.fuad.dicoding_event.databinding.FragmentHomeBinding
+import com.fuad.dicoding_event.ui.HomeViewModel
+import com.google.android.material.divider.MaterialDividerItemDecoration
 
 class HomeFragment : Fragment() {
 
@@ -24,22 +29,57 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        with(binding){
+            searchView.setupWithSearchBar(searchBar)
+            searchView.editText
+                .setOnEditorActionListener { textView, i, keyEvent ->
+                    searchBar.setText(searchView.text)
+                    searchView.hide()
+                    false
+                }
+
+        }
+
         binding.recyclerViewUpcoming.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        binding.recyclerViewFinished.layoutManager = LinearLayoutManager(context)
 
         viewModel.listEventItemUpcoming.observe(viewLifecycleOwner){ listEventItem ->
             setUpcomingEvent(listEventItem)
         }
+
+        viewModel.listEventItemFinished.observe(viewLifecycleOwner) { listEventItem ->
+            setFinished(listEventItem)
+        }
+
+        viewModel.isLoading.observe(viewLifecycleOwner) {
+            showLoading(it)
+        }
+    }
+
+    private fun setFinished(listEventItem: List<ListEventsItem?>?) {
+        val adapter = EventFinishedAdapter()
+        adapter.submitList(listEventItem)
+        binding.recyclerViewFinished.adapter = adapter
     }
 
     private fun setUpcomingEvent(listEventsItem: List<ListEventsItem?>?) {
         val adapter = EventUpcomingAdapter()
         adapter.submitList(listEventsItem)
         binding.recyclerViewUpcoming.adapter = adapter
+    }
+
+    fun showLoading(isLoading: Boolean) {
+        if (isLoading) {
+            binding.progressBar.visibility = View.VISIBLE
+        } else {
+            binding.progressBar.visibility = View.GONE
+        }
     }
 
 }

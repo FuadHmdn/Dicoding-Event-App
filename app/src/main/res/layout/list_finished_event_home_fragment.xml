@@ -4,8 +4,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="6dp"
-    app:cardElevation="8dp"
-    android:layout_marginBottom="8dp"
+    android:layout_marginBottom="10dp"
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,10 +15,11 @@
             android:id="@+id/image_card_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:cardElevation="8dp"
-            app:cardCornerRadius="8dp"
             android:layout_marginHorizontal="4dp"
             android:layout_marginVertical="4dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -27,8 +27,8 @@
                 android:id="@+id/image_upcoming_home"
                 android:layout_width="120dp"
                 android:layout_height="135dp"
-                android:scaleType="centerCrop"
                 android:contentDescription="@string/finished_event"
+                android:scaleType="centerCrop"
                 tools:src="@drawable/dummy_image" />
 
         </androidx.cardview.widget.CardView>
@@ -46,10 +46,12 @@
             tools:text="@string/description"/>
 
         <TextView
+            android:id="@+id/summary_finished_event"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="6dp"
+            app:layout_constraintBottom_toBottomOf="@+id/image_card_view"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/image_card_view"
             app:layout_constraintTop_toBottomOf="@id/event_title"

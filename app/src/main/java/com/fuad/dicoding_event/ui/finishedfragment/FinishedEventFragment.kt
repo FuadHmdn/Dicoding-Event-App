@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.fuad.dicoding_event.databinding.FragmentFinishedEventBinding
+import com.fuad.dicoding_event.ui.homefragment.EventFinishedAdapter
 
 class FinishedEventFragment : Fragment() {
 
@@ -19,10 +20,17 @@ class FinishedEventFragment : Fragment() {
         _binding = FragmentFinishedEventBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        setAdapter()
+    }
+
+    private fun setAdapter() {
+        val adapter = EventFinishedAdapter()
 
     }
 }
