@@ -8,7 +8,6 @@ import android.view.inputmethod.EditorInfo
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import com.fuad.dicoding_event.data.ListEventsItem
 import com.fuad.dicoding_event.databinding.FragmentFinishedEventBinding
 import com.fuad.dicoding_event.ui.homefragment.EventFinishedAdapter
@@ -55,7 +54,7 @@ class FinishedEventFragment : Fragment() {
         with(binding) {
             searchView.setupWithSearchBar(searchBar)
             searchView.editText
-                .setOnEditorActionListener { textView, i, keyEvent ->
+                .setOnEditorActionListener { textView, i, _ ->
                     searchBar.setText(searchView.text)
                     if (i == EditorInfo.IME_ACTION_SEARCH) {
 
