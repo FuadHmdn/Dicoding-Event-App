@@ -11,4 +11,8 @@
     <string name="finished_event">Finished Event</string>
     <string name="description">DevCoach 173: iOS | Mendalami SwiftUI, UI Framework Masa Depan!</string>
     <string name="search_bar">Cari Event</string>
+    <string name="deskripsi_acara">Deskripsi Acara</string>
+    <string name="penyelengara">Penyelengara</string>
+    <string name="waktu">Waktu</string>
+    <string name="register">Register</string>
 </resources>
