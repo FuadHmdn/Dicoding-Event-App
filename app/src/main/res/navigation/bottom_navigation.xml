@@ -2,23 +2,22 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/botom_navigation"
+    android:id="@+id/bottom_navigation"
     app:startDestination="@id/homeFragment">
-
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.fuad.dicoding_event.ui.fragment.HomeFragment"
+        android:name="com.fuad.dicoding_event.ui.homefragment.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/upcomingEventFragment"
-        android:name="com.fuad.dicoding_event.ui.fragment.UpcomingEventFragment"
+        android:name="com.fuad.dicoding_event.ui.upcomingfragment.UpcomingEventFragment"
         android:label="fragment_upcoming_event"
         tools:layout="@layout/fragment_upcoming_event" />
     <fragment
         android:id="@+id/finishedEventFragment"
-        android:name="com.fuad.dicoding_event.ui.fragment.FinishedEventFragment"
+        android:name="com.fuad.dicoding_event.ui.finishedfragment.FinishedEventFragment"
         android:label="fragment_finished_event"
         tools:layout="@layout/fragment_finished_event" />
 </navigation>

@@ -9,4 +9,5 @@
     <string name="search_bar_hint">Cari Event Dicoding!</string>
     <string name="upcoming_event">Upcoming Event</string>
     <string name="finished_event">Finished Event</string>
+    <string name="description">DevCoach 173: iOS | Mendalami SwiftUI, UI Framework Masa Depan!</string>
 </resources>

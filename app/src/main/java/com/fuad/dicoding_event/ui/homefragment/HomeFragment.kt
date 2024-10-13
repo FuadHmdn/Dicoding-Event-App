@@ -1,4 +1,4 @@
-package com.fuad.dicoding_event.ui.fragment
+package com.fuad.dicoding_event.ui.homefragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,8 +9,6 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fuad.dicoding_event.data.ListEventsItem
 import com.fuad.dicoding_event.databinding.FragmentHomeBinding
-import com.fuad.dicoding_event.ui.EventAdapter
-import com.fuad.dicoding_event.ui.HomeViewModel
 
 class HomeFragment : Fragment() {
 
@@ -39,7 +37,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun setUpcomingEvent(listEventsItem: List<ListEventsItem?>?) {
-        val adapter = EventAdapter()
+        val adapter = EventUpcomingAdapter()
         adapter.submitList(listEventsItem)
         binding.recyclerViewUpcoming.adapter = adapter
     }

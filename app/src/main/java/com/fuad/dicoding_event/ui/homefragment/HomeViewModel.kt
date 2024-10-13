@@ -1,4 +1,4 @@
-package com.fuad.dicoding_event.ui
+package com.fuad.dicoding_event.ui.homefragment
 
 import android.util.Log
 import androidx.lifecycle.LiveData

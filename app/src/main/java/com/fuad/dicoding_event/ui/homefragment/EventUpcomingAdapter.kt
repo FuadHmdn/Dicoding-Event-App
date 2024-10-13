@@ -1,4 +1,4 @@
-package com.fuad.dicoding_event.ui
+package com.fuad.dicoding_event.ui.homefragment
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide
 import com.fuad.dicoding_event.data.ListEventsItem
 import com.fuad.dicoding_event.databinding.ListUpcomingEventHomeFragmentBinding
 
-class EventAdapter: ListAdapter<ListEventsItem, EventAdapter.ViewHolder>(DIFF_CALLBACK) {
+class EventUpcomingAdapter: ListAdapter<ListEventsItem, EventUpcomingAdapter.ViewHolder>(DIFF_CALLBACK) {
 
     class ViewHolder(val binding: ListUpcomingEventHomeFragmentBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(event: ListEventsItem){

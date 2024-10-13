@@ -1,4 +1,4 @@
-package com.fuad.dicoding_event.ui.fragment
+package com.fuad.dicoding_event.ui.upcomingfragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
