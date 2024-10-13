@@ -9,7 +9,6 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fuad.dicoding_event.data.ListEventsItem
 import com.fuad.dicoding_event.databinding.FragmentHomeBinding
-import com.fuad.dicoding_event.ui.HomeViewModel
 
 class HomeFragment : Fragment() {
 

@@ -11,7 +11,7 @@ import com.fuad.dicoding_event.databinding.ListUpcomingEventHomeFragmentBinding
 
 class EventUpcomingAdapter: ListAdapter<ListEventsItem, EventUpcomingAdapter.ViewHolder>(DIFF_CALLBACK) {
 
-    class ViewHolder(val binding: ListUpcomingEventHomeFragmentBinding): RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(private val binding: ListUpcomingEventHomeFragmentBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(event: ListEventsItem){
             Glide.with(binding.root.context)
                 .load(event.imageLogo)
