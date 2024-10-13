@@ -33,16 +33,20 @@ class DetailActivity : AppCompatActivity() {
         getDetailData(id)
 
         viewModel.item.observe(this){ event ->
-            binding.name.text = event?.name
+            val quota: Int? = event?.quota
+            val registrants: Int? = event?.registrants
+            val result = (quota!! - registrants!!).toString()
+
+            binding.name.text = event.name
             Glide.with(this)
-                .load(event?.imageLogo)
+                .load(event.imageLogo)
                 .into(binding.imageLogo)
-            val desc = event?.description
+            val desc = event.description
             binding.description.text = Html.fromHtml(desc, Html.FROM_HTML_MODE_COMPACT)
-            binding.ownerName.text = event?.ownerName
-            binding.beginTime.text = event?.beginTime
-            binding.registrant.text = event?.registrants.toString()
-            url = event?.link
+            binding.ownerName.text = event.ownerName
+            binding.beginTime.text = event.beginTime
+            binding.registrant.text = result
+            url = event.link
         }
 
         binding.btnRegister.setOnClickListener {
