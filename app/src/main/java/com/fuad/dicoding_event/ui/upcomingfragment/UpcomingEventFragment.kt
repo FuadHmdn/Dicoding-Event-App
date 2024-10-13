@@ -1,5 +1,6 @@
 package com.fuad.dicoding_event.ui.upcomingfragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,6 +13,7 @@ import com.fuad.dicoding_event.R
 import com.fuad.dicoding_event.data.ListEventsItem
 import com.fuad.dicoding_event.databinding.FragmentFinishedEventBinding
 import com.fuad.dicoding_event.databinding.FragmentUpcomingEventBinding
+import com.fuad.dicoding_event.ui.DetailActivity
 import com.fuad.dicoding_event.ui.finishedfragment.FinishedViewModel
 import com.fuad.dicoding_event.ui.homefragment.EventFinishedAdapter
 
@@ -74,7 +76,13 @@ class UpcomingEventFragment : Fragment() {
     }
 
     private fun setAdapter(event: List<ListEventsItem?>?) {
-        val adapter = UpcomingAdapter()
+        val adapter = UpcomingAdapter { item ->
+            val id = item.id
+            val intent = Intent(context, DetailActivity::class.java)
+            intent.putExtra( DetailActivity.EXTRA_ID , id)
+            startActivity(intent)
+        }
+
         adapter.submitList(event)
         binding.rvFinishedFragment.adapter = adapter
     }

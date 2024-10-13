@@ -1,148 +1,156 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:paddingStart="16dp"
     android:paddingEnd="16dp"
-    android:layout_height="match_parent"
     tools:context=".ui.DetailActivity">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        app:cardCornerRadius="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/imageLogo"
-            android:layout_width="200dp"
-            android:layout_height="210dp"
-            android:contentDescription="@string/app_name"
-            tools:src="@drawable/dummy_image" />
-    </androidx.cardview.widget.CardView>
-
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginTop="22dp"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardView"
-        tools:text="@string/description" />
-
-    <TableLayout
-        android:id="@+id/tableLayout"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/name">
+        android:layout_height="wrap_content">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_marginTop="22dp"
-            android:layout_height="wrap_content">
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            app:cardCornerRadius="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:paddingEnd="16dp"
-                android:layout_height="wrap_content"
-                android:text="@string/penyelengara"
-                tools:ignore="RtlSymmetry" />
-
-            <TextView
-                android:id="@+id/ownerName"
-                android:layout_width="wrap_content"
-                android:paddingEnd="16dp"
-                android:layout_height="wrap_content"
-                tools:text="@string/app_name"
-                tools:ignore="RtlSymmetry" />
-        </TableRow>
-
-        <TableRow
-            android:layout_marginTop="6dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:paddingEnd="16dp"
-                android:layout_height="wrap_content"
-                android:text="@string/waktu"
-                tools:ignore="RtlSymmetry" />
-
-            <TextView
-                android:id="@+id/beginTime"
-                android:layout_width="wrap_content"
-                android:paddingEnd="16dp"
-                android:layout_height="wrap_content"
-                tools:text="2024-10-17 16:00:00"
-                tools:ignore="RtlSymmetry" />
-        </TableRow>
-
-        <TableRow
-            android:layout_marginTop="6dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:paddingEnd="16dp"
-                android:layout_height="wrap_content"
-                tools:text="Sisa Kuota"
-                tools:ignore="RtlSymmetry" />
-
-            <TextView
-                android:id="@+id/registrant"
-                android:layout_width="wrap_content"
-                android:paddingEnd="16dp"
-                android:layout_height="wrap_content"
-                tools:text="2000"
-                tools:ignore="RtlSymmetry" />
-        </TableRow>
-
-        <TableRow
-            android:layout_marginTop="6dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:paddingEnd="16dp"
-                android:layout_height="wrap_content"
-                android:text="@string/deskripsi_acara"
-                tools:ignore="RtlSymmetry" />
-        </TableRow>
+            <ImageView
+                android:id="@+id/imageLogo"
+                android:layout_width="200dp"
+                android:layout_height="210dp"
+                android:contentDescription="@string/app_name"
+                tools:src="@drawable/dummy_image" />
+        </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/description"
-            android:layout_width="wrap_content"
-            android:paddingEnd="16dp"
-            android:layout_marginTop="6dp"
+            android:id="@+id/name"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            tools:text="@string/description"
-            tools:ignore="RtlSymmetry" />
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="22dp"
+            android:layout_marginEnd="64dp"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardView"
+            tools:text="@string/description" />
 
-    </TableLayout>
+        <TableLayout
+            android:id="@+id/tableLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/name">
 
-    <Button
-        android:id="@+id/btnRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/register"
-        android:layout_marginTop="26dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tableLayout" />
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="16dp"
+                    android:text="@string/penyelengara"
+                    tools:ignore="RtlSymmetry" />
+
+                <TextView
+                    android:id="@+id/ownerName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="16dp"
+                    tools:ignore="RtlSymmetry"
+                    tools:text="@string/app_name" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="16dp"
+                    android:text="@string/waktu"
+                    tools:ignore="RtlSymmetry" />
+
+                <TextView
+                    android:id="@+id/beginTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="16dp"
+                    tools:ignore="RtlSymmetry"
+                    tools:text="2024-10-17 16:00:00" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="16dp"
+                    android:text="@string/sisa_kuota"
+                    tools:ignore="RtlSymmetry" />
+
+                <TextView
+                    android:id="@+id/registrant"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="16dp"
+                    tools:ignore="RtlSymmetry"
+                    tools:text="2000" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="16dp"
+                    android:text="@string/deskripsi_acara"
+                    tools:ignore="RtlSymmetry" />
+            </TableRow>
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:paddingEnd="16dp"
+                tools:ignore="RtlSymmetry"
+                tools:text="@string/description" />
+
+        </TableLayout>
+
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:layout_marginBottom="28dp"
+            android:text="@string/register"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tableLayout" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

@@ -10,23 +10,28 @@ import com.fuad.dicoding_event.data.ListEventsItem
 import com.fuad.dicoding_event.databinding.ListFinishedEventHomeFragmentBinding
 import com.fuad.dicoding_event.databinding.ListFinishedFragmentBinding
 
-class UpcomingAdapter: ListAdapter<ListEventsItem, UpcomingAdapter.ViewHolder>(
+class UpcomingAdapter(private val onItemClick: (ListEventsItem) -> Unit) : ListAdapter<ListEventsItem, UpcomingAdapter.ViewHolder>(
     DIFF_CALLBACK
 ) {
 
-    class ViewHolder(private val binding: ListFinishedFragmentBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bind(event: ListEventsItem) {
+    class ViewHolder(private val binding: ListFinishedFragmentBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(event: ListEventsItem, onItemClick: (ListEventsItem) -> Unit) {
             Glide.with(binding.root.context)
                 .load(event.imageLogo)
                 .into(binding.imageUpcomingHome)
 
             binding.eventTitle.text = event.name
             binding.summaryFinishedEvent.text = event.summary
+
+            binding.root.setOnClickListener {
+                onItemClick(event)
+            }
         }
     }
 
-    companion object{
-        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<ListEventsItem>(){
+    companion object {
+        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<ListEventsItem>() {
             override fun areItemsTheSame(
                 oldItem: ListEventsItem,
                 newItem: ListEventsItem
@@ -45,12 +50,15 @@ class UpcomingAdapter: ListAdapter<ListEventsItem, UpcomingAdapter.ViewHolder>(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = ListFinishedFragmentBinding.inflate(LayoutInflater.from(parent.context), parent ,false)
+        val binding =
+            ListFinishedFragmentBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val event = getItem(position)
-       holder.bind(event)
+        holder.bind(event, onItemClick)
+
+
     }
 }
