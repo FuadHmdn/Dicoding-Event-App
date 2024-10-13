@@ -1,16 +1,18 @@
 package com.fuad.dicoding_event.ui.finishedfragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fuad.dicoding_event.data.ListEventsItem
 import com.fuad.dicoding_event.databinding.FragmentFinishedEventBinding
-import com.fuad.dicoding_event.ui.homefragment.EventFinishedAdapter
+import com.fuad.dicoding_event.ui.DetailActivity
 
 class FinishedEventFragment : Fragment() {
 
@@ -31,7 +33,7 @@ class FinishedEventFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.rvFinishedFragment.layoutManager = LinearLayoutManager(context)
+        binding.rvFinishedFragment.layoutManager = LinearLayoutManager(requireActivity())
 
         viewModel.listEventItemFinished.observe(viewLifecycleOwner){ listEvent->
             setAdapter(listEvent)
@@ -49,6 +51,14 @@ class FinishedEventFragment : Fragment() {
 
         viewModel.isLoading.observe(viewLifecycleOwner){
             showLoading(it)
+        }
+
+        viewModel.failure.observe(viewLifecycleOwner){ failure->
+            if (failure) {
+                viewModel.failureMessage.observe(viewLifecycleOwner){ message ->
+                    Toast.makeText(requireActivity(), message, Toast.LENGTH_LONG).show()
+                }
+            }
         }
 
         with(binding) {
@@ -71,7 +81,12 @@ class FinishedEventFragment : Fragment() {
     }
 
     private fun setAdapter(event: List<ListEventsItem?>?) {
-        val adapter = EventFinishedAdapter()
+        val adapter = FinishedAdapter { item ->
+            val id = item.id
+            val intent = Intent(requireActivity(), DetailActivity::class.java)
+            intent.putExtra( DetailActivity.EXTRA_ID , id)
+            startActivity(intent)
+        }
         adapter.submitList(event)
         binding.rvFinishedFragment.adapter = adapter
     }

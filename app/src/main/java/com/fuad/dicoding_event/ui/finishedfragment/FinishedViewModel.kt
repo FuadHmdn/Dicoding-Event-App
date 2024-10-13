@@ -27,6 +27,12 @@ class FinishedViewModel: ViewModel() {
     private var _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
+    private var _failure = MutableLiveData<Boolean>()
+    val failure: LiveData<Boolean> = _failure
+
+    private var _failureMessage = MutableLiveData<String>()
+    val failureMessage: LiveData<String> = _failureMessage
+
     init {
         findFinishedEvent()
     }
@@ -51,6 +57,8 @@ class FinishedViewModel: ViewModel() {
             override fun onFailure(call: Call<EventResponse>, t: Throwable) {
                 _isLoading.value = false
                 Log.e(TAG, "Failure : ${t.message.toString()}")
+                _failureMessage.value = t.message.toString()
+                _failure.value = true
             }
 
         })
@@ -72,6 +80,8 @@ class FinishedViewModel: ViewModel() {
             override fun onFailure(call: Call<EventResponse>, t: Throwable) {
                 _isLoading.value = false
                 Log.e(TAG, "Failure : ${t.message.toString()}")
+                _failureMessage.value = t.message.toString()
+                _failure.value = true
             }
 
         })

@@ -7,21 +7,24 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.fuad.dicoding_event.data.ListEventsItem
-import com.fuad.dicoding_event.databinding.ListFinishedEventHomeFragmentBinding
 import com.fuad.dicoding_event.databinding.ListFinishedFragmentBinding
 
-class FinishedAdapter: ListAdapter<ListEventsItem, FinishedAdapter.ViewHolder>(
+class FinishedAdapter(private val onItemClick: (ListEventsItem) -> Unit): ListAdapter<ListEventsItem, FinishedAdapter.ViewHolder>(
     DIFF_CALLBACK
 ) {
 
     class ViewHolder(private val binding: ListFinishedFragmentBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bind(event: ListEventsItem) {
+        fun bind(event: ListEventsItem, onItemClick: (ListEventsItem) -> Unit) {
             Glide.with(binding.root.context)
                 .load(event.imageLogo)
                 .into(binding.imageUpcomingHome)
 
             binding.eventTitle.text = event.name
             binding.summaryFinishedEvent.text = event.summary
+
+            binding.root.setOnClickListener {
+                onItemClick(event)
+            }
         }
     }
 
@@ -51,6 +54,6 @@ class FinishedAdapter: ListAdapter<ListEventsItem, FinishedAdapter.ViewHolder>(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val event = getItem(position)
-       holder.bind(event)
+       holder.bind(event, onItemClick)
     }
 }

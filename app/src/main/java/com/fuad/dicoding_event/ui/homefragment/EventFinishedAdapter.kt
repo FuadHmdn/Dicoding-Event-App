@@ -9,18 +9,22 @@ import com.bumptech.glide.Glide
 import com.fuad.dicoding_event.data.ListEventsItem
 import com.fuad.dicoding_event.databinding.ListFinishedEventHomeFragmentBinding
 
-class EventFinishedAdapter: ListAdapter<ListEventsItem, EventFinishedAdapter.ViewHolder>(
+class EventFinishedAdapter(private val onItemClick: (ListEventsItem) -> Unit): ListAdapter<ListEventsItem, EventFinishedAdapter.ViewHolder>(
     DIFF_CALLBACK
 ) {
 
     class ViewHolder(private val binding: ListFinishedEventHomeFragmentBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bind(event: ListEventsItem) {
+        fun bind(event: ListEventsItem, onItemClick: (ListEventsItem) -> Unit) {
             Glide.with(binding.root.context)
                 .load(event.imageLogo)
                 .into(binding.imageUpcomingHome)
 
             binding.eventTitle.text = event.name
             binding.summaryFinishedEvent.text = event.summary
+
+            binding.root.setOnClickListener {
+                onItemClick(event)
+            }
         }
     }
 
@@ -50,6 +54,6 @@ class EventFinishedAdapter: ListAdapter<ListEventsItem, EventFinishedAdapter.Vie
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val event = getItem(position)
-       holder.bind(event)
+       holder.bind(event, onItemClick)
     }
 }

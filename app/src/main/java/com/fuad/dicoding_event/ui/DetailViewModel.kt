@@ -1,14 +1,11 @@
 package com.fuad.dicoding_event.ui
 
 import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.fuad.dicoding_event.data.ApiConfig
 import com.fuad.dicoding_event.data.Event
-import com.fuad.dicoding_event.data.EventResponse
-import com.fuad.dicoding_event.data.ListEventsItem
 import com.fuad.dicoding_event.data.ResponseEvent
 import retrofit2.Call
 import retrofit2.Callback

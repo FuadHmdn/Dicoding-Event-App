@@ -63,6 +63,7 @@
             android:id="@+id/tableLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/name">
 
             <TableRow
@@ -83,6 +84,7 @@
                     android:layout_height="wrap_content"
                     android:paddingEnd="16dp"
                     tools:ignore="RtlSymmetry"
+                    android:layout_weight="1"
                     tools:text="@string/app_name" />
             </TableRow>
 
@@ -103,6 +105,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingEnd="16dp"
+                    android:layout_weight="1"
                     tools:ignore="RtlSymmetry"
                     tools:text="2024-10-17 16:00:00" />
             </TableRow>
@@ -125,6 +128,7 @@
                     android:layout_height="wrap_content"
                     android:paddingEnd="16dp"
                     tools:ignore="RtlSymmetry"
+                    android:layout_weight="1"
                     tools:text="2000" />
             </TableRow>
 
@@ -146,11 +150,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                android:paddingEnd="16dp"
-                tools:ignore="RtlSymmetry"
                 android:autoLink="web"
+                android:paddingEnd="16dp"
+                android:layout_weight="1"
+                tools:ignore="RtlSymmetry"
                 tools:text="@string/description" />
-
         </TableLayout>
 
         <Button
