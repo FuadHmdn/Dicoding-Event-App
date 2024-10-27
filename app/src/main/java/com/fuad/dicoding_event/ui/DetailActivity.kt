@@ -11,12 +11,24 @@ import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.fuad.dicoding_event.R
+import com.fuad.dicoding_event.data.local.entity.EventEntity
 import com.fuad.dicoding_event.databinding.ActivityDetailBinding
 
 class DetailActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetailBinding
-    private val viewModel: DetailViewModel by viewModels()
+    private var isFavorite: Boolean = false
+    private lateinit var eventEntity: EventEntity
+
+    private val factory: ViewModelFactory by lazy {
+        ViewModelFactory.getInstance(this)
+    }
+
+    private val viewModel: DetailViewModel by viewModels{
+        factory
+    }
+
     private var url: String? = null
 
     companion object{
@@ -32,10 +44,14 @@ class DetailActivity : AppCompatActivity() {
         val id = intent.getIntExtra(EXTRA_ID, 0)
         getDetailData(id)
 
+        eventFavoriteCheck(id)
+
         viewModel.item.observe(this){ event ->
             val quota: Int? = event?.quota
             val registrants: Int? = event?.registrants
             val result = (quota!! - registrants!!).toString()
+
+            eventEntity = EventEntity(event.id.toString(), event.name!!, event.mediaCover!!)
 
             binding.name.text = event.name
             Glide.with(this)
@@ -66,6 +82,19 @@ class DetailActivity : AppCompatActivity() {
                 }
             }
         }
+
+        binding.favorit.setOnClickListener {
+            if (isFavorite){
+                binding.favorit.setImageResource(R.drawable.baseline_favorite_border_24)
+                viewModel.deleteFavoriteEvent(eventEntity)
+                isFavorite = false
+            } else {
+                binding.favorit.setImageResource(R.drawable.baseline_favorite_24)
+                viewModel.insertFavoriteEvent(eventEntity)
+                isFavorite = true
+            }
+        }
+
     }
 
     private fun getDetailData(id: Int) {
@@ -75,8 +104,30 @@ class DetailActivity : AppCompatActivity() {
     private fun showLoading(b: Boolean){
         if (b) {
             binding.progressBarFinishedFragment.visibility = View.VISIBLE
+            binding.favorit.visibility = View.GONE
+            binding.description.visibility = View.GONE
+            binding.ownerName.visibility = View.GONE
+            binding.beginTime.visibility = View.GONE
+            binding.registrant.visibility = View.GONE
         } else {
             binding.progressBarFinishedFragment.visibility = View.GONE
+            binding.favorit.visibility = View.VISIBLE
+            binding.description.visibility = View.VISIBLE
+            binding.ownerName.visibility = View.VISIBLE
+            binding.beginTime.visibility = View.VISIBLE
+            binding.registrant.visibility = View.VISIBLE
+        }
+    }
+
+    private fun eventFavoriteCheck(id: Int){
+        viewModel.geFavoriteEvent(id).observe(this){ event->
+            if (event == null) {
+                binding.favorit.setImageResource(R.drawable.baseline_favorite_border_24)
+                isFavorite = false
+            } else {
+                binding.favorit.setImageResource(R.drawable.baseline_favorite_24)
+                isFavorite = true
+            }
         }
     }
 }
