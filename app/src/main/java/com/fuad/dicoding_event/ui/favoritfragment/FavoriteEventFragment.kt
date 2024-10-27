@@ -45,6 +45,8 @@ class FavoriteEventFragment : Fragment() {
         viewModel.getAllFavoriteEvent().observe(viewLifecycleOwner){ event->
             if (event.isNotEmpty()) {
                 setAdapter(event)
+            } else {
+                setAdapter(emptyList())
             }
         }
     }
@@ -59,5 +61,10 @@ class FavoriteEventFragment : Fragment() {
 
         adapter.submitList(event)
         binding.rvFavoriteFragment.adapter = adapter
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

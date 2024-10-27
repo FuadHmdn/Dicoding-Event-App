@@ -31,31 +31,17 @@
 
 
             <TextView
-                android:id="@+id/homeTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="22dp"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:text="@string/app_name"
-                android:textSize="26sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
                 android:id="@+id/textview_upcoming_event"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="22dp"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
-                android:textSize="19sp"
+                android:textSize="16sp"
                 android:text="@string/upcoming_event"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/homeTitle" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_view_upcoming"
@@ -74,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
                 android:paddingStart="16dp"
-                android:textSize="19sp"
+                android:textSize="16sp"
                 android:paddingEnd="16dp"
                 android:text="@string/finished_event"
                 android:textStyle="bold"
