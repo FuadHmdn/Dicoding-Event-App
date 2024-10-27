@@ -1,16 +1,16 @@
-package com.fuad.dicoding_event.data
+package com.fuad.dicoding_event.data.remote
 
 import com.google.gson.annotations.SerializedName
 
 data class EventResponse(
 
-	@field:SerializedName("listEvents")
+    @field:SerializedName("listEvents")
 	val listEvents: List<ListEventsItem?>? = null,
 
-	@field:SerializedName("error")
+    @field:SerializedName("error")
 	val error: Boolean? = null,
 
-	@field:SerializedName("message")
+    @field:SerializedName("message")
 	val message: String? = null
 )
 

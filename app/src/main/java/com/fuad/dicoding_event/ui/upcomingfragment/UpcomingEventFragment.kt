@@ -10,7 +10,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.fuad.dicoding_event.data.ListEventsItem
+import com.fuad.dicoding_event.data.remote.ListEventsItem
 import com.fuad.dicoding_event.databinding.FragmentUpcomingEventBinding
 import com.fuad.dicoding_event.ui.DetailActivity
 

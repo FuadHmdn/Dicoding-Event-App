@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.fuad.dicoding_event.data.ListEventsItem
+import com.fuad.dicoding_event.data.remote.ListEventsItem
 import com.fuad.dicoding_event.databinding.ListFinishedFragmentBinding
 
 class UpcomingAdapter(private val onItemClick: (ListEventsItem) -> Unit) : ListAdapter<ListEventsItem, UpcomingAdapter.ViewHolder>(

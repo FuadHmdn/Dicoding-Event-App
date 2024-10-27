@@ -1,4 +1,4 @@
-package com.fuad.dicoding_event.data
+package com.fuad.dicoding_event.data.remote
 
 import com.fuad.dicoding_event.BuildConfig
 import okhttp3.OkHttpClient

@@ -20,4 +20,10 @@
         android:name="com.fuad.dicoding_event.ui.finishedfragment.FinishedEventFragment"
         android:label="fragment_finished_event"
         tools:layout="@layout/fragment_finished_event" />
+
+    <fragment
+        android:id="@+id/favoriteEventFragment"
+        android:name="com.fuad.dicoding_event.ui.favoritfragment.FavoriteEventFragment"
+        android:label="fragment_favorite"
+        tools:layout="@layout/fragment_favorite" />
 </navigation>

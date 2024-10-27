@@ -15,4 +15,9 @@
         android:id="@+id/upcomingEventFragment"
         android:title="@string/upcomingTitle"
         android:icon="@drawable/ic_event_24" />
+
+    <item
+        android:id="@+id/favoriteEventFragment"
+        android:title="@string/favoriteTitle"
+        android:icon="@drawable/baseline_favorite_border_24" />
 </menu>

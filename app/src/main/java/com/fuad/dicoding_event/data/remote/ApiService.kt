@@ -1,4 +1,4 @@
-package com.fuad.dicoding_event.data
+package com.fuad.dicoding_event.data.remote
 
 import retrofit2.Call
 import retrofit2.http.GET

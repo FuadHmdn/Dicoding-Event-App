@@ -1,4 +1,4 @@
-package com.fuad.dicoding_event.data
+package com.fuad.dicoding_event.data.remote
 
 import com.google.gson.annotations.SerializedName
 
