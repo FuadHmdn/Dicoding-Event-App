@@ -16,7 +16,7 @@ class SettingsActivity : AppCompatActivity() {
 
         val switchTheme: SwitchMaterial = findViewById(R.id.switchMaterial)
         val pref = SettingsPreferences.getInstance(application.dataStore)
-        val viewModel = ViewModelProvider(this, SettingsViewModelFactory(pref)).get(SettingsViewModel::class.java)
+        val viewModel = ViewModelProvider(this, SettingsViewModelFactory(pref))[SettingsViewModel::class.java]
 
         viewModel.getTheme().observe(this){ isDark ->
             if (isDark) {

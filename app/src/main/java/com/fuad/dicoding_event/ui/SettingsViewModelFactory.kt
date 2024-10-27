@@ -3,7 +3,7 @@ package com.fuad.dicoding_event.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 
-class SettingsViewModelFactory( val settings: SettingsPreferences)
+class SettingsViewModelFactory(private val settings: SettingsPreferences)
     :ViewModelProvider.NewInstanceFactory(){
 
     @Suppress("UNCHECKED_CAST")

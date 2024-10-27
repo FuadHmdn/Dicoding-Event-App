@@ -6,7 +6,7 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 
-class SettingsViewModel(val settingsPreferences: SettingsPreferences): ViewModel() {
+class SettingsViewModel(private val settingsPreferences: SettingsPreferences): ViewModel() {
 
     fun getTheme(): LiveData<Boolean>{
         return settingsPreferences.getTheme().asLiveData()
